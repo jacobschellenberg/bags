@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Linq;
 using BagsEngine;
 
 namespace Bags
@@ -15,9 +14,7 @@ namespace Bags
             var folderPath = rootPath + Path.PathSeparator + "queue" + Path.PathSeparator;
             var savePath = rootPath + Path.PathSeparator + "processed" + Path.PathSeparator;
 
-            var files = Directory.EnumerateFiles(folderPath).Where(file => Path.GetExtension(file).Equals(".txt", StringComparison.InvariantCultureIgnoreCase)).ToList();
-
-            WordProcessor.ProcessFiles(folderPath, savePath, files);
+            WordProcessor.ProcessFiles(folderPath, savePath);
 
             Console.ReadKey();
         }
