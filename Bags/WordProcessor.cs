@@ -15,13 +15,14 @@ namespace BagsEngine
         private static bool _showVerboseLogs = false;
         private static List<string> _stopWords = new List<string>();
 
-        public static void ProcessFiles(string loadPath, string savePath)
+        public static void ProcessFiles(string rootPath, string loadPath, string savePath)
         {
-            _stopWords = GetStopWords();
+            _stopWords = GetStopWords(rootPath);
 
             Log(isVerbose: false);
 
-            var filePaths = Directory.EnumerateFiles(loadPath).Where(file => Path.GetExtension(file).Equals(".txt", StringComparison.InvariantCultureIgnoreCase)).ToList();
+            var location = Directory.EnumerateFiles(loadPath);
+            var filePaths = location.Where(file => Path.GetExtension(file).Equals(".txt", StringComparison.InvariantCultureIgnoreCase)).ToList();
 
             for (int i = 0; i < filePaths.Count; i++)
             {
@@ -106,9 +107,9 @@ namespace BagsEngine
             Log(fileName + " written.");
         }
 
-        private static List<string> GetStopWords()
+        private static List<string> GetStopWords(string loadPath)
         {
-            using (StreamReader streamReader = new StreamReader("StopWords.txt"))
+            using (StreamReader streamReader = new StreamReader(loadPath + "StopWords.txt"))
             {
                 return streamReader.ReadToEnd().Split('\n').ToList();
             }

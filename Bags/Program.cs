@@ -10,11 +10,11 @@ namespace Bags
         {
             Console.WriteLine("Bags!");
 
-            var rootPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var folderPath = rootPath + Path.PathSeparator + "queue" + Path.PathSeparator;
-            var savePath = rootPath + Path.PathSeparator + "processed" + Path.PathSeparator;
+            var rootPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/";
+            var loadPath = rootPath + "queue/";
+            var savePath = rootPath + "processed/";
 
-            WordProcessor.ProcessFiles(folderPath, savePath);
+            WordProcessor.ProcessFiles(rootPath, loadPath, savePath);
 
             Console.ReadKey();
         }
