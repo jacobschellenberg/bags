@@ -10,3 +10,6 @@ Reads in text files, spits out a json of all words and the number of times they 
 
 # Stop Words
 If you want to exclude certain words from being counted, add a 'StopWords.txt' that is new line deliminated. Each new line should contain the single word that will be excluded from being counted.
+
+# Config
+Add a 'config.json' to the same folder the .exe is located to provide extra options. See the /Defaults/config.json for available options.
