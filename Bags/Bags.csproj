@@ -49,6 +49,7 @@
     <Compile Include="Utilities\IOUtilities.cs" />
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Config.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
