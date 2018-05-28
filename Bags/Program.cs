@@ -1,20 +1,20 @@
 using System;
-using System.IO;
+using Bags.Utilities;
 using BagsEngine;
 
 namespace Bags
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Bags!");
 
-            var rootPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/";
+            var rootPath = IOUtilities.GetExecutionPath() + "/";
             var loadPath = rootPath + "queue/";
             var savePath = rootPath + "processed/";
 
-            WordProcessor.ProcessFiles(rootPath, loadPath, savePath);
+            WordProcessor.CountWordsInFiles(rootPath, loadPath, savePath);
 
             Console.ReadKey();
         }
