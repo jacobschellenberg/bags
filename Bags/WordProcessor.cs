@@ -32,8 +32,7 @@ namespace BagsEngine
             Logger.WriteLine("Processing File: " + filePath + " ...", false);
 
             var wordCount = new Dictionary<string, int>();
-            string text = IOUtilities.Read(filePath);
-            string[] words = text.SplitByWord();
+            string[] words = IOUtilities.Read(filePath).SplitByWord();
 
             words.ToList().ForEach(word => {
                 if (!_stopWords.Contains(word))
